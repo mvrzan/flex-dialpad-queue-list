@@ -1,7 +1,7 @@
-import * as Flex from "@twilio/flex-ui";
+import * as Flex from '@twilio/flex-ui';
 
-import ViewCollection from "./ViewCollection";
+import OutboundDialerPanel from './OutboundDialerPanel';
 
 export default (flex: typeof Flex, manager: Flex.Manager) => {
-  ViewCollection(flex, manager);
+  OutboundDialerPanel(flex, manager);
 };

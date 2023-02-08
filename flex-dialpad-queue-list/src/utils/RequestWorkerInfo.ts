@@ -1,10 +1,12 @@
 import { Manager } from '@twilio/flex-ui';
+import { TaskRouterResponse } from '../types/types';
+
 const manager = Manager.getInstance();
 
 const requestWorkerInfoHandler = async (
   workerSid: string,
   workspaceSid: string
-) => {
+): Promise<TaskRouterResponse[] | undefined> => {
   const body = {
     workerSid,
     workspaceSid,
@@ -22,7 +24,8 @@ const requestWorkerInfoHandler = async (
         },
       }
     );
-    const data = await resp.json();
+    const data: TaskRouterResponse[] = await resp.json();
+
     return data;
   } catch (error) {
     console.error(error);
