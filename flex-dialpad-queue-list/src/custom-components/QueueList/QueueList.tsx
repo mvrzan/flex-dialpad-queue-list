@@ -24,7 +24,7 @@ const QueueList = () => {
   const getWorkerInfo = async (): Promise<void> => {
     const responseQueues = await parsedData();
 
-    setQueueList(responseQueues);
+    // setQueueList(responseQueues);
     setIsLoadingQueues(false);
   };
 

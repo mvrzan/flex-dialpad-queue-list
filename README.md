@@ -10,7 +10,11 @@ Twilio Flex Plugins allow you to customize the appearance and behavior of [Twili
 
 The _Dialpad Filtered Queue List_ replaces the out-of-the-box queue dropdown component and with a custom component that displays the queues the worker is assigned to, instead of a list of all queues available.
 
-![](./screenshots/flex_diaplad_queue_list.gif)
+![](./screenshots/flex_dialpad_queue_list.gif)
+
+In case there are no queues selected or assigned to an agent, the default queue from the Flex service configure will be used for an outbound call.
+
+![](./screenshots/flex_dialpad_no_queues.gif)
 
 ## How is the queue list being filtered?
 
@@ -19,8 +23,6 @@ When the component mounts (agent opens the dialpad) the plugin will make a call 
 This function will then call the [TaskRouter API](https://www.twilio.com/docs/taskrouter/api/task-queue#action-list) by passing in the `workerSid` which results in a list of TaskQueues matched by a given Worker.
 
 This information is then sent back to the Flex plugin and it then renders the options for an agent.
-
-In case there are no queues selected or assigned to an agent, the default queue from the Flex service configure will be used for an outbound call.
 
 ## Architectural diagram
 
