@@ -37,7 +37,7 @@ const prepareFunction = (
       success: false,
       message: error,
     });
-    callback(null, response);
+    return callback(null, response);
   };
 
   return handlerFn(context, event, callback, response, handleError);
