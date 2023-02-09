@@ -30,6 +30,10 @@ The below architectural diagram is a representation of involved Twilio services 
 
 **IN PROGRESS**
 
+## General code architecture
+
+The code in this example is following the [Twilio Professional Services template](https://github.com/twilio-professional-services/flex-project-template).
+
 #### Supported Flex version
 
 This plugin only supports Twilio Flex v2.x.
