@@ -94,8 +94,9 @@ Edit `.env` and set these variables with the Sids from your account.
 
 ```bash
 # The following values are example references only
-TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxx
-TWILIO_AUTH_TOKEN=
+TWILIO_SERVICE_RETRY_LIMIT=5
+TWILIO_SERVICE_MIN_BACKOFF=100
+TWILIO_SERVICE_MAX_BACKOFF=300
 ```
 
 Next, deploy the Serverless functions:
