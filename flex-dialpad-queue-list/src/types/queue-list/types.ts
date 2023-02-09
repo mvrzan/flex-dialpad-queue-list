@@ -33,3 +33,9 @@ export interface TaskRouterResponse {
   url: string;
   workspaceSid: string;
 }
+
+export interface ServerlessResponse {
+  success: boolean;
+  status: number;
+  queues: TaskRouterResponse[];
+}

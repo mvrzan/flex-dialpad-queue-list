@@ -11,8 +11,8 @@ const getParsedData = async (): Promise<QueueInfo[] | []> => {
     return [];
   }
 
-  const responseQueues = Object.keys(response)
-    .map(queue => response[+queue])
+  const responseQueues = Object.keys(response.queues)
+    .map(queue => response.queues[+queue])
     .map(newQueue => {
       const { friendlyName, sid } = newQueue;
       return { friendlyName, sid };
