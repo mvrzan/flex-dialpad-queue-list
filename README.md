@@ -8,7 +8,7 @@ Twilio Flex Plugins allow you to customize the appearance and behavior of [Twili
 
 ## How it works
 
-The _Dialpad Filtered Queue List_ replaces the out-of-the-box queue dropdown component and with a custom component that displays the queues the worker is assigned to, instead of a list of all queues available.
+The _Dialpad Filtered Queue List_ replaces the out-of-the-box queue dropdown component with a custom component that displays the queues the worker is assigned to, instead of a list of all queues available.
 
 ![](./screenshots/flex_dialpad_queue_list.gif)
 
