@@ -31,7 +31,7 @@ exports.handler = prepareFlexFunction(
 
       response.setStatusCode(result.status);
       response.setBody(result);
-      callback(null, response);
+      return callback(null, response);
     } catch (error) {
       handleError(error);
     }
