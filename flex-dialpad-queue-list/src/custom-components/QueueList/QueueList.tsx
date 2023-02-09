@@ -5,8 +5,8 @@ import { Option } from '@twilio-paste/core/select';
 import { Spinner } from '@twilio-paste/core/spinner';
 import { Actions } from '@twilio/flex-ui';
 
-import parsedData from '../../utils/ParsedData';
-import { QueueInfo } from 'types/types';
+import parsedData from '../../utils/getParsedData';
+import { QueueInfo } from '../../types/queue-list/types';
 
 const QueueList = () => {
   const [queueSid, setQueueSid] = useState('');

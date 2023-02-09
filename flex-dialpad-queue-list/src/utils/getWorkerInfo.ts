@@ -1,10 +1,10 @@
 import { Manager } from '@twilio/flex-ui';
-import { WorkerInfoType } from '../types/types';
+import { WorkerInfoType } from '../types/queue-list/types';
 
-const WorkerInfo = (): WorkerInfoType => {
+const getWorkerInfo = (): WorkerInfoType => {
   const { workerSid, workspaceSid } = Manager.getInstance().workerClient!;
 
   return { workerSid, workspaceSid };
 };
 
-export default WorkerInfo;
+export default getWorkerInfo;
