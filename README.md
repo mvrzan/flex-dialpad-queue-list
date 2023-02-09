@@ -18,7 +18,7 @@ In case there are no queues selected or assigned to an agent, the default queue 
 
 ## How is the queue list being filtered?
 
-When the component mounts (agent opens the dialpad) the plugin will make a call to the `/getQueues.js` Twilio serverless function.
+When the component mounts (agent opens the dialpad) the plugin will make a call to the `/get-filtered-queues.js` Twilio serverless function.
 
 This function will then call the [TaskRouter API](https://www.twilio.com/docs/taskrouter/api/task-queue#action-list) by passing in the `workerSid` which results in a list of TaskQueues matched by a given Worker.
 
