@@ -24,6 +24,8 @@ This function will then call the [TaskRouter API](https://www.twilio.com/docs/ta
 
 This information is then sent back to the Flex plugin and it then renders the options for an agent.
 
+A potential option is to cache the data returned from the TaskRouter API into the Flex Redux store to reduce the amount of API calls made from the UI; however, the caveat here is that the browser would need to be refreshed to updated any newly added queues.
+
 ## Architectural diagram
 
 The below architectural diagram is a representation of involved Twilio services for this plugin:
