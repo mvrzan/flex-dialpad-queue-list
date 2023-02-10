@@ -30,7 +30,7 @@ A potential option is to cache the data returned from the TaskRouter API into th
 
 The below architectural diagram is a representation of involved Twilio services for this plugin:
 
-<img width="700px" src="./screenshots/architecture-diagram.png"/>
+<img width="700px" src="./screenshots/architecture_diagram.png"/>
 
 ## General code architecture
 
