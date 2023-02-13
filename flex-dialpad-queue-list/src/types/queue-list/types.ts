@@ -39,3 +39,7 @@ export interface ServerlessResponse {
   status: number;
   queues: TaskRouterResponse[];
 }
+
+export interface myPayload {
+  queueSid: string;
+}

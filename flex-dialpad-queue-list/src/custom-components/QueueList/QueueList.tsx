@@ -6,16 +6,12 @@ import { Spinner } from '@twilio-paste/core/spinner';
 import { Actions } from '@twilio/flex-ui';
 
 import parsedData from '../../utils/getParsedData';
-import { QueueInfo } from '../../types/queue-list/types';
+import { QueueInfo, myPayload } from '../../types/queue-list/types';
 
 const QueueList = () => {
   const [queueSid, setQueueSid] = useState('');
   const [isLoadingQueues, setIsLoadingQueues] = useState(true);
   const [queueList, setQueueList] = useState<QueueInfo[]>([]);
-
-  Actions.addListener('beforeStartOutboundCall', payload => {
-    payload.queueSid = queueSid;
-  });
 
   const onChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setQueueSid(event.target.value);
@@ -37,6 +33,17 @@ const QueueList = () => {
       setIsLoadingQueues(false);
     }
   }, [queueList]);
+
+  useEffect(() => {
+    const payloadHandler = (payload: myPayload): void => {
+      payload.queueSid = queueSid;
+    };
+    Actions.addListener('beforeStartOutboundCall', payloadHandler);
+
+    return () => {
+      Actions.removeListener('beforeStartOutboundCall', payloadHandler);
+    };
+  }, [queueSid]);
 
   return (
     <>
