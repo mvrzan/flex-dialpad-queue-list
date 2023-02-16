@@ -5,8 +5,8 @@ import { Option } from '@twilio-paste/core/select';
 import { Spinner } from '@twilio-paste/core/spinner';
 import { Actions } from '@twilio/flex-ui';
 
-import parsedData from '../../utils/getParsedData';
 import { QueueInfo, myPayload } from '../../types/queue-list/types';
+import TaskRouterService from '../../utils/TaskRouter/TaskRouterService';
 
 const QueueList = () => {
   const [queueSid, setQueueSid] = useState('');
@@ -18,7 +18,7 @@ const QueueList = () => {
   };
 
   const getWorkerInfo = async (): Promise<void> => {
-    const responseQueues = await parsedData();
+    const responseQueues = await TaskRouterService.getQueueInfo();
 
     setQueueList(responseQueues);
     setIsLoadingQueues(false);

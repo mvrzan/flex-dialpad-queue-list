@@ -2,20 +2,24 @@ import * as Flex from '@twilio/flex-ui';
 import ApiService from '../ApiService';
 import { WorkerInfoType } from '../../types/queue-list/types';
 import { ServerlessResponse } from '../../types/queue-list/types';
+import { QueueInfo } from '../../types/queue-list/types';
 
 class TaskRouterService extends ApiService {
-  async getQueueInfo(
-    config: WorkerInfoType
-  ): Promise<ServerlessResponse | undefined> {
+  async getQueueInfo(): Promise<QueueInfo[] | []> {
     try {
+      const config = this.#getWorkerInfo();
       const response = await this.#getQueueInfo(config);
 
       if (response === undefined) {
-        return;
+        return [];
       }
 
-      return response;
+      const parsedResponse = await this.#getParsedData(response);
+
+      return parsedResponse;
     } catch (error) {
+      throw error;
+
       console.log('Unable to get TaskRouter data', error);
     }
   }
@@ -47,6 +51,28 @@ class TaskRouterService extends ApiService {
     return {
       ...response,
     };
+  };
+
+  #getWorkerInfo = (): WorkerInfoType => {
+    const { workerSid, workspaceSid } =
+      Flex.Manager.getInstance().workerClient!;
+
+    return { workerSid, workspaceSid };
+  };
+
+  #getParsedData = (data: ServerlessResponse): QueueInfo[] => {
+    if (data === undefined) {
+      return [];
+    }
+
+    const responseQueues = Object.keys(data.queues)
+      .map(queue => data.queues[+queue])
+      .map(newQueue => {
+        const { friendlyName, sid } = newQueue;
+        return { friendlyName, sid };
+      });
+
+    return responseQueues;
   };
 }
 
