@@ -4,17 +4,42 @@
 
 # Twilio Flex Dialpad Filtered Queue List
 
-Twilio Flex Plugins allow you to customize the appearance and behavior of [Twilio Flex](https://www.twilio.com/flex). If you want to learn more about the capabilities and how to use the API, check out our [Flex documentation](https://www.twilio.com/docs/flex).
+A Twilio Flex plugin that enhances the out-of-the-box [Flex dialer](https://www.twilio.com/docs/flex/end-user-guide/dialpad-use).
 
-## How it works
+- [Twilio Flex Dialpad Filtered Queue List](#twilio-flex-dialpad-filtered-queue-list)
+  - [How does it work?](#how-does-it-work)
+  - [How is the queue list being filtered?](#how-is-the-queue-list-being-filtered)
+  - [Architectural diagram](#architectural-diagram)
+  - [General code architecture](#general-code-architecture)
+    - [Supported Flex version](#supported-flex-version)
+  - [Development](#development)
+- [Configuration](#configuration)
+  - [Requirements](#requirements)
+  - [Setup](#setup)
+  - [Serverless Functions](#serverless-functions)
+    - [Deployment](#deployment)
+  - [Flex Plugin](#flex-plugin)
+    - [Development](#development-1)
+    - [Deploy your Flex Plugin](#deploy-your-flex-plugin)
+  - [Deployment to QA, Staging and Production environments](#deployment-to-qa-staging-and-production-environments)
+    - [CLI Profiles](#cli-profiles)
+    - [Serverless](#serverless)
+    - [Plugin](#plugin)
+  - [Preventing conflicting configuration updates](#preventing-conflicting-configuration-updates)
+  - [License](#license)
+  - [Disclaimer](#disclaimer)
+
+---
+
+## How does it work?
 
 The _Dialpad Filtered Queue List_ replaces the out-of-the-box queue dropdown component with a custom component that displays the queues the worker is assigned to, instead of a list of all queues available.
 
-![](./screenshots/flex_dialpad_queue_list.gif)
+| List applicable queues                         | No queues are found                           |
+| ---------------------------------------------- | --------------------------------------------- | ------ |
+| ![](./screenshots/flex_dialpad_queue_list.gif) | ![](./screenshots/flex_dialpad_no_queues.gif) | fdsafd |
 
 In case there are no queues selected or assigned to an agent, the default queue from the Flex service configure will be used for an outbound call.
-
-![](./screenshots/flex_dialpad_no_queues.gif)
 
 ## How is the queue list being filtered?
 
