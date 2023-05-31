@@ -10,19 +10,19 @@ A Twilio Flex plugin that enhances the out-of-the-box [Flex dialer](https://www.
 
 - [Twilio Flex Dialpad Filtered Queue List](#twilio-flex-dialpad-filtered-queue-list)
 - [Table of **Contents**](#table-of-contents)
+  - [What does it do?](#what-does-it-do)
   - [How does it work?](#how-does-it-work)
-  - [How is the queue list being filtered?](#how-is-the-queue-list-being-filtered)
-  - [Architectural diagram](#architectural-diagram)
-  - [General code architecture](#general-code-architecture)
+    - [How is the queue list being filtered?](#how-is-the-queue-list-being-filtered)
+    - [Architectural diagram](#architectural-diagram)
+    - [General code architecture](#general-code-architecture)
     - [Supported Flex version](#supported-flex-version)
-  - [Development](#development)
 - [Configuration](#configuration)
   - [Requirements](#requirements)
   - [Setup](#setup)
   - [Serverless Functions](#serverless-functions)
     - [Deployment](#deployment)
   - [Flex Plugin](#flex-plugin)
-    - [Development](#development-1)
+    - [Development](#development)
     - [Deploy your Flex Plugin](#deploy-your-flex-plugin)
   - [Deployment to QA, Staging and Production environments](#deployment-to-qa-staging-and-production-environments)
     - [CLI Profiles](#cli-profiles)
@@ -34,7 +34,7 @@ A Twilio Flex plugin that enhances the out-of-the-box [Flex dialer](https://www.
 
 ---
 
-## How does it work?
+## What does it do?
 
 The _Dialpad Filtered Queue List_ replaces the out-of-the-box queue dropdown component with a custom component that displays the queues the worker is assigned to, instead of a list of all queues available.
 
@@ -44,7 +44,11 @@ The _Dialpad Filtered Queue List_ replaces the out-of-the-box queue dropdown com
 
 In case there are no queues selected or assigned to an agent, the default queue from the Flex service configure will be used for an outbound call.
 
-## How is the queue list being filtered?
+## How does it work?
+
+The _Dialpad Filtered Queue List_ replaces the out-of-the-box queue dropdown component with a custom component that displays the queues the worker is assigned to, instead of a list of all queues available.
+
+### How is the queue list being filtered?
 
 When the component mounts (agent opens the dialpad) the plugin will make a call to the `/get-filtered-queues.js` Twilio serverless function.
 
@@ -54,23 +58,19 @@ This information is then sent back to the Flex plugin and it then renders the op
 
 A potential option is to cache the data returned from the TaskRouter API into the Flex Redux store to reduce the amount of API calls made from the UI; however, the caveat here is that the browser would need to be refreshed to updated any newly added queues.
 
-## Architectural diagram
+### Architectural diagram
 
 The below architectural diagram is a representation of involved Twilio services for this plugin:
 
-<img width="700px" src="./screenshots/architecture_diagram.png"/>
+<img width="100%" src="./screenshots/architecture_diagram.png"/>
 
-## General code architecture
+### General code architecture
 
-The code in this example is following the [Twilio Professional Services template](https://github.com/twilio-professional-services/flex-project-template).
+The code in this example is following the [Twilio Professional Services template](https://github.com/twilio-professional-services/flex-project-template) structure.
 
-#### Supported Flex version
+### Supported Flex version
 
 This plugin only supports Twilio Flex v2.x.
-
-## Development
-
-Run `twilio flex:plugins --help` to see all the commands we currently support. For further details on Flex Plugins refer to our documentation on the [Twilio Docs](https://www.twilio.com/docs/flex/developer/plugins/cli) page.
 
 # Configuration
 
