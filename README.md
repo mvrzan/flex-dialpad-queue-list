@@ -6,7 +6,10 @@
 
 A Twilio Flex plugin that enhances the out-of-the-box [Flex dialer](https://www.twilio.com/docs/flex/end-user-guide/dialpad-use).
 
+# Table of **Contents**
+
 - [Twilio Flex Dialpad Filtered Queue List](#twilio-flex-dialpad-filtered-queue-list)
+- [Table of **Contents**](#table-of-contents)
   - [How does it work?](#how-does-it-work)
   - [How is the queue list being filtered?](#how-is-the-queue-list-being-filtered)
   - [Architectural diagram](#architectural-diagram)
