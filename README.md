@@ -36,8 +36,8 @@ A Twilio Flex plugin that enhances the out-of-the-box [Flex dialer](https://www.
 The _Dialpad Filtered Queue List_ replaces the out-of-the-box queue dropdown component with a custom component that displays the queues the worker is assigned to, instead of a list of all queues available.
 
 | List applicable queues                         | No queues are found                           |
-| ---------------------------------------------- | --------------------------------------------- | ------ |
-| ![](./screenshots/flex_dialpad_queue_list.gif) | ![](./screenshots/flex_dialpad_no_queues.gif) | fdsafd |
+| ---------------------------------------------- | --------------------------------------------- |
+| ![](./screenshots/flex_dialpad_queue_list.gif) | ![](./screenshots/flex_dialpad_no_queues.gif) |
 
 In case there are no queues selected or assigned to an agent, the default queue from the Flex service configure will be used for an outbound call.
 
