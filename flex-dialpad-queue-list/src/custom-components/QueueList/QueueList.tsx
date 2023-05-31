@@ -5,6 +5,7 @@ import { Option } from '@twilio-paste/core/select';
 import { Spinner } from '@twilio-paste/core/spinner';
 import { Actions } from '@twilio/flex-ui';
 
+import { noQueuesFound, selectQueue } from './constants';
 import { QueueInfo, myPayload } from '../../types/queue-list/types';
 import TaskRouterService from '../../utils/TaskRouter/TaskRouterService';
 
@@ -70,20 +71,13 @@ const QueueList = () => {
                     </Option>
                   ))}
                 </Select>
-                <HelpText>
-                  Select a queue that is going to be associated with this
-                  outbound call.
-                </HelpText>
+                <HelpText>{selectQueue}</HelpText>
               </Flex>
             </>
           ) : (
             <>
               {/* Help text in cases there are no available queues */}
-              <HelpText>
-                There are no queues assigned to you at this moment. The default
-                queue from service configuration will be selected for outbound
-                calls.
-              </HelpText>
+              <HelpText>{noQueuesFound}</HelpText>
             </>
           )}
         </>
