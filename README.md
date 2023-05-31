@@ -156,7 +156,7 @@ cd serverless
 cp .env.example .env
 ```
 
-Edit `.env` and set these variables with the Sids from your account.
+Edit `.env` and set these variables as following:
 
 ```bash
 # The following values are example references only
@@ -173,10 +173,6 @@ twilio serverless:deploy
 
 ```
 
-**Note**: If you need to re-deploy the serverless functions, they will re-deploy whatever agent extensions JSON file lives in the source control. This means you will lose all of the changes from Sync Map. Once you've deployed the serverless functions, simply publish the changes from the UI.
-
-Additional option is to create a script to fetch the lates JSON file directly from Sync Map and include that as your build artifact.
-
 After successfully deploying your function, you should see at least the following:
 
 ```bash
@@ -191,7 +187,7 @@ Functions:
 (more)
 ```
 
-Your functions will now be present in the Twilio Functions Console and be part of the "serverless" service. Copy the base URL from the function.
+Your functions will now be present in the Twilio Functions Console and be part of the "serverless" service. If this is your first time deploying a serverless function, copy the base URL and update your Flex Plugin UI `.env` file.
 
 ## License
 
