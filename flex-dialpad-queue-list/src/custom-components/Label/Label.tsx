@@ -1,5 +1,5 @@
-import { Label as PasteLabel } from '@twilio-paste/core';
-import { Flex } from '@twilio-paste/core';
+import { Label as PasteLabel } from "@twilio-paste/core/label";
+import { Flex } from "@twilio-paste/core/flex";
 
 const Label = () => {
   return (

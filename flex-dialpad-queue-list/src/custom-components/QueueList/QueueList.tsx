@@ -1,16 +1,19 @@
-import { ChangeEvent, useEffect, useState } from 'react';
-import { Stack, Flex, HelpText } from '@twilio-paste/core';
-import { Select } from '@twilio-paste/core/select';
-import { Option } from '@twilio-paste/core/select';
-import { Spinner } from '@twilio-paste/core/spinner';
-import { Actions } from '@twilio/flex-ui';
+import { ChangeEvent, useEffect, useState } from "react";
 
-import { noQueuesFound, selectQueue } from './constants';
-import { QueueInfo, myPayload } from '../../types/queue-list/types';
-import TaskRouterService from '../../utils/TaskRouter/TaskRouterService';
+import { Flex } from "@twilio-paste/core/flex";
+import { Stack } from "@twilio-paste/core/stack";
+import { Spinner } from "@twilio-paste/core/spinner";
+import { HelpText } from "@twilio-paste/core/help-text";
+import { Select, Option } from "@twilio-paste/core/select";
+
+import { Actions } from "@twilio/flex-ui";
+
+import { noQueuesFound, selectQueue } from "./constants";
+import { QueueInfo, myPayload } from "../../types/queue-list/types";
+import TaskRouterService from "../../utils/TaskRouter/TaskRouterService";
 
 const QueueList = () => {
-  const [queueSid, setQueueSid] = useState('');
+  const [queueSid, setQueueSid] = useState("");
   const [isLoadingQueues, setIsLoadingQueues] = useState(true);
   const [queueList, setQueueList] = useState<QueueInfo[]>([]);
 
@@ -39,10 +42,10 @@ const QueueList = () => {
     const payloadHandler = (payload: myPayload): void => {
       payload.queueSid = queueSid;
     };
-    Actions.addListener('beforeStartOutboundCall', payloadHandler);
+    Actions.addListener("beforeStartOutboundCall", payloadHandler);
 
     return () => {
-      Actions.removeListener('beforeStartOutboundCall', payloadHandler);
+      Actions.removeListener("beforeStartOutboundCall", payloadHandler);
     };
   }, [queueSid]);
 
@@ -65,7 +68,7 @@ const QueueList = () => {
             <>
               <Flex width="100%" vertical hAlignContent="center">
                 <Select id="queue" onChange={onChangeHandler}>
-                  {queueList.map(option => (
+                  {queueList.map((option) => (
                     <Option key={option.sid} value={option.sid}>
                       {option.friendlyName}
                     </Option>
